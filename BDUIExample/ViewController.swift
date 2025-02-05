@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         view.addSubview(bduiView)
         print("view created")
         // some changes
+        // some changes in feature
     }
 }
 
