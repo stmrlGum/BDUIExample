@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct UIModel: Codable {
+    let type: UIResponder
     let x: CGFloat
     let y: CGFloat
     let width: CGFloat

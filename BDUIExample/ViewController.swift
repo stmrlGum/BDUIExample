@@ -25,20 +25,31 @@ class ViewController: UIViewController {
                                           green: uiModel.color.green / 255.0,
                                           blue: uiModel.color.blue / 255.0,
                                           alpha: 1.0)
-                    self.buildUIview(x: uiModel.x, y: uiModel.y, width: uiModel.width, height: uiModel.height, color: uiColor)
+                    self.buildUIElement(type: UIButton.self, x: uiModel.x, y: uiModel.y, width: uiModel.width, height: uiModel.height, color: uiColor)
                 }
             }
         }
-    // MARK: попробовать добавить дженерики
-    func buildUIview(x: CGFloat,
-                     y: CGFloat,
-                     width: CGFloat,
-                     height: CGFloat,
-                     color: UIColor) {
-        let bduiView = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
-        bduiView.backgroundColor = color
-        view.addSubview(bduiView)
-        print("view created")
+    
+
+    func buildUIElement<T: UIView>(
+        type: T.Type,
+        x: CGFloat,
+        y: CGFloat,
+        width: CGFloat,
+        height: CGFloat,
+        color: UIColor?
+    ) {
+        let element = T(frame: CGRect(x: x, y: y, width: width, height: height))
+        element.backgroundColor = color
+        if let button = element as? UIButton {
+                button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+            }
+        view.addSubview(element)
+        print("\(T.self) создан(а)")
+    }
+    
+    @objc func handleTap() {
+        print("Tap!")
     }
 }
 
