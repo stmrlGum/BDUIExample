@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         bduiView.backgroundColor = color
         view.addSubview(bduiView)
         print("view created")
+        // some changes
     }
 }
 
