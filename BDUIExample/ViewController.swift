@@ -29,6 +29,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+<<<<<<< HEAD
     
 
     func buildUIElement<T: UIView>(
@@ -50,6 +51,20 @@ class ViewController: UIViewController {
     
     @objc func handleTap() {
         print("Tap!")
+=======
+    // MARK: попробовать добавить дженерики
+    func buildUIview(x: CGFloat,
+                     y: CGFloat,
+                     width: CGFloat,
+                     height: CGFloat,
+                     color: UIColor) {
+        let bduiView = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
+        bduiView.backgroundColor = color
+        view.addSubview(bduiView)
+        print("view created")
+        // some changes
+        // some changes in feature
+>>>>>>> 6c2b70367bb9ecf23582ec3c24f89b9a370cba56
     }
 }
 
